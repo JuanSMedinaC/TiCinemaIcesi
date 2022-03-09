@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import model.CinemaIcesi;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	private CinemaIcesi cineIcesi=new CinemaIcesi();
 	private Stage currentStage = new Stage();
 	private Image icon;
 	@Override
@@ -75,6 +77,9 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		
+	}
+	public boolean validatePassword(String password) throws IOException {
+		return cineIcesi.validatePassword(password);
 	}
 	public static void main(String[] args) {
 		launch(args);
