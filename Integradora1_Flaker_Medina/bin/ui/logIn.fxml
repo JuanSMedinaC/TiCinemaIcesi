@@ -13,17 +13,17 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
             <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Enter your password" />
+                  <Label fx:id="label" text="Enter your password" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <PasswordField />
+                  <PasswordField fx:id="passwordField" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showMainMenu" text="Enter" />
+                  <Button mnemonicParsing="false" onAction="#enterButton" text="Enter" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />

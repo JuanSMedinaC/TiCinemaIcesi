@@ -1,9 +1,10 @@
 package controller;
 
-import java.awt.Label;
+import java.io.IOException;
 
 import application.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 
 public class LogInController {
@@ -17,10 +18,15 @@ public class LogInController {
 	
 	@FXML
 	public void enterButton() {
-		if(passwordField.getText().equals(null)) {
-			
-		}else {
-			label.setText("Contraseña invalida");
+		try {
+			if(main.validatePassword(passwordField.getText())) {
+				showMainMenu();
+			}else {
+				label.setText("Contraseña erronea");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	public void setMain(Main main) {
@@ -29,6 +35,7 @@ public class LogInController {
 	public void showMainMenu() {
 		main.showMainMenu();
 	}
+
 	
 	
 }
