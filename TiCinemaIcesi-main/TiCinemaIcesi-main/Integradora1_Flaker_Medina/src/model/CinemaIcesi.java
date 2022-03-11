@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+<<<<<<< Updated upstream:Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
+=======
+import java.util.ArrayList;
+>>>>>>> Stashed changes:TiCinemaIcesi-main/TiCinemaIcesi-main/Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
 
 public class CinemaIcesi {
 	Room miniRoom;
@@ -38,5 +42,14 @@ public class CinemaIcesi {
 			mediumRoom.registerFunction(movieName, functionDate, functionHour, functionMinute, am, lengthInMins);
 		}
 	}
+<<<<<<< Updated upstream:Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
+=======
+	public void selectSpot(int row, int column, String clientName) {
+		miniRoom.selectSpot(row, column, clientName);
+	}
+	public ArrayList<Function> returnFunctions(){
+		return miniRoom.returnFunctions();
+	}
+>>>>>>> Stashed changes:TiCinemaIcesi-main/TiCinemaIcesi-main/Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
 
 }
