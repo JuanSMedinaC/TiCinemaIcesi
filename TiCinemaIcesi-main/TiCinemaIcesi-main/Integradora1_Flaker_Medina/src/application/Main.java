@@ -3,10 +3,15 @@ package application;
 import controller.*;
 import java.io.IOException;
 import java.time.LocalDate;
+<<<<<<< Updated upstream:Integradora1_Flaker_Medina/src/application/Main.java
+=======
+import java.util.ArrayList;
+>>>>>>> Stashed changes:TiCinemaIcesi-main/TiCinemaIcesi-main/Integradora1_Flaker_Medina/src/application/Main.java
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.CinemaIcesi;
+import model.Function;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -88,6 +93,15 @@ public class Main extends Application {
 	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) {
 		cineIcesi.registerFunction(movieName, functionDate, functionHour, functionMinute, am, room, lengthInMins);
 	}
+<<<<<<< Updated upstream:Integradora1_Flaker_Medina/src/application/Main.java
+=======
+	public void selectSpot(int row, int column, String clientName) {
+		cineIcesi.selectSpot(row, column, clientName);
+	}
+	public ArrayList<Function> returnFunctions(){
+		return cineIcesi.returnFunctions();
+	}
+>>>>>>> Stashed changes:TiCinemaIcesi-main/TiCinemaIcesi-main/Integradora1_Flaker_Medina/src/application/Main.java
 	public static void main(String[] args) {
 		launch(args);
 	}
