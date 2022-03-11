@@ -1,3 +1,15 @@
+.bg-style {
+    -fx-background-color:  #616A6B;
+}
 .button-1{
+	-fx-background-color: white;
 	-fx-shape: "M 300 350 C 300 300 350 200 450 200 C 550 200 600 300 600 350 A 50 50 0 1 1 300 350";
+	-fx-pref-height: 52px;
+    -fx-pref-width: 52px
+}
+.button-2{
+	-fx-background-color: #5DADE2;
+	-fx-shape: "M 300 350 C 300 300 350 200 450 200 C 550 200 600 300 600 350 A 50 50 0 1 1 300 350";
+	-fx-pref-height: 52px;
+    -fx-pref-width: 52px
 }
