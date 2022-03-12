@@ -1,48 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterMoviesController">
-   <children>
-      <VBox minHeight="600.0" minWidth="600.0" prefHeight="200.0" prefWidth="100.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterMoviesController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="100.0" prefWidth="232.0">
-                     <children>
-                        <Label text="Enter the title" />
-                        <TextField fx:id="textField" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="100.0" prefWidth="238.0">
-                     <children>
-                        <Label text="Enter the date" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="100.0" prefWidth="237.0">
-                     <children>
-                        <Label text="Enter the room" />
-                        <ChoiceBox fx:id="roomChoice" prefHeight="25.0" prefWidth="272.0" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <Label layoutX="83.0" layoutY="22.0" text="Movie name" />
+            <Label layoutX="50.0" layoutY="126.0" text="Movie presentation date" />
+            <Label layoutX="50.0" layoutY="222.0" text="Movie presentation hour" />
+            <Label layoutX="55.0" layoutY="256.0" text="12 hour format hh:mm" />
+            <RadioButton fx:id="amButton" layoutX="55.0" layoutY="341.0" mnemonicParsing="false" text="AM">
+               <toggleGroup>
+                  <ToggleGroup fx:id="hourButtons" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="pmButton" layoutX="129.0" layoutY="341.0" mnemonicParsing="false" text="PM" toggleGroup="$hourButtons" />
+            <TextField fx:id="timeField" layoutX="41.0" layoutY="300.0" />
+            <DatePicker fx:id="datePicker" layoutX="28.0" layoutY="165.0" />
+            <TextField fx:id="nameField" layoutX="42.0" layoutY="56.0" />
+            <TextField fx:id="lengthField" layoutX="412.0" layoutY="100.0" />
+            <Label layoutX="430.0" layoutY="66.0" text="Movie length in mins" />
+            <Label layoutX="456.0" layoutY="169.0" text="Room type" />
+            <RadioButton fx:id="mediumRoomButton" layoutX="430.0" layoutY="200.0" mnemonicParsing="false" text="MediumRoom" />
+            <RadioButton fx:id="miniRoomButton" layoutX="430.0" layoutY="231.0" mnemonicParsing="false" text="MiniRoom" />
+            <Button fx:id="submitButton" layoutX="460.0" layoutY="329.0" mnemonicParsing="false" onAction="#submitFunction" text="Submit" />
          </children>
-      </VBox>
-   </children>
-</VBox>
+      </Pane>
+   </center>
+</BorderPane>

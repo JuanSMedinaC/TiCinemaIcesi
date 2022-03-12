@@ -2,12 +2,16 @@ package application;
 	
 import controller.*;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.CinemaIcesi;
+import model.Function;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.fxml.FXMLLoader;
 
@@ -66,10 +70,12 @@ public class Main extends Application {
 		}
 	}
 	public void showRegisterMovies() {
-		VBox root;
+		BorderPane root;
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/registerMovies.fxml"));
-			root = (VBox)loader.load();
+			root = (BorderPane)loader.load();
+			RegisterMoviesController regMovCont= loader.getController();
+			regMovCont.setMain(this);
 			
 			Scene scene = new Scene(root,800,500);
 			currentStage.setScene(scene);
@@ -80,6 +86,18 @@ public class Main extends Application {
 	}
 	public boolean validatePassword(String password) throws IOException {
 		return cineIcesi.validatePassword(password);
+	}
+	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) {
+		cineIcesi.registerFunction(movieName, functionDate, functionHour, functionMinute, am, room, lengthInMins);
+	}
+	public void selectSpot(int row, int column, String clientName, int position) {
+		cineIcesi.selectSpot(row, column, clientName, position);
+	}
+	public ArrayList<Function> returnFunctions(){
+		return cineIcesi.returnFunctions();
+	}
+	public boolean isFull(int position) {
+		return cineIcesi.isFull(position);
 	}
 	public static void main(String[] args) {
 		launch(args);

@@ -1,18 +1,45 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Room {
 	private String[][] seatsWithNames;
-	private Function function;
+	private boolean mediumRoom;
 	
-	public Room(int rows, int columns) {
-		seatsWithNames=new String[rows][columns];
+	public Room(boolean mediumRoom) {
+		this.mediumRoom=mediumRoom;
+		if(mediumRoom) {
+			seatsWithNames=new String[6][7];
+		}else {
+			seatsWithNames=new String[4][7];
+		}
 	}
 	
-	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int lengthInMins) {
-		function=new Function(movieName, functionDate, functionHour, functionMinute, am, lengthInMins);
+	public void selectSpot(int row, int column, String clientName) {
+		
+		if(seatsWithNames[row][column]=="") {
+			seatsWithNames[row][column]=clientName;
+		}
 	}
-	
-	
+	public boolean isFull() {
+		int counter=0;
+		for(int i=0; i<seatsWithNames.length;i++) {
+			for(int j=0; j<seatsWithNames[0].length;j++) {
+				if(seatsWithNames[i][j].equalsIgnoreCase("")){
+					counter++;
+				}
+			}
+		}
+		if(counter==0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
