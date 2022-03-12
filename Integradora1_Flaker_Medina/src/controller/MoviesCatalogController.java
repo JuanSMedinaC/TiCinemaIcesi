@@ -1,7 +1,7 @@
 package controller;
 import application.Main;
 
-public class MoviesCatalogController {
+public class MoviesCatalogController {//ESTE ES EL DEL COMBOBOX
 	
 	private Main main;
 	

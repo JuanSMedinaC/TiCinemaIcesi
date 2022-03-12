@@ -5,17 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-<<<<<<< Updated upstream:Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
-=======
 import java.util.ArrayList;
->>>>>>> Stashed changes:TiCinemaIcesi-main/TiCinemaIcesi-main/Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
 
 public class CinemaIcesi {
-	Room miniRoom;
-	Room mediumRoom;
+	ArrayList<Function> functionsList;
 	public CinemaIcesi() {
-		miniRoom=new Room(7,4);
-		mediumRoom=new Room(7,6);
+		functionsList=new ArrayList<Function>();
 	}
 	
 	public boolean validatePassword(String password) throws IOException {
@@ -35,21 +30,23 @@ public class CinemaIcesi {
 	}
 	
 	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) {
-		if(room==1) {
-			miniRoom.registerFunction(movieName, functionDate, functionHour, functionMinute, am, lengthInMins);
+		boolean mediumRoom = true;
+		if(room == 1) {
+			mediumRoom=false;
+		}else {
+			mediumRoom=true;
 		}
-		else {
-			mediumRoom.registerFunction(movieName, functionDate, functionHour, functionMinute, am, lengthInMins);
-		}
+		functionsList.add(new Function(movieName, functionDate, functionHour, functionMinute, am, lengthInMins, mediumRoom));
+
 	}
-<<<<<<< Updated upstream:Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
-=======
-	public void selectSpot(int row, int column, String clientName) {
-		miniRoom.selectSpot(row, column, clientName);
+	public void selectSpot(int row, int column, String clientName, int position) {
+		functionsList.get(position).selectSpot(row, column, clientName);
+	}
+	public boolean isFull(int position) {
+		return functionsList.get(position).isFull();
 	}
 	public ArrayList<Function> returnFunctions(){
-		return miniRoom.returnFunctions();
+		return functionsList;
 	}
->>>>>>> Stashed changes:TiCinemaIcesi-main/TiCinemaIcesi-main/Integradora1_Flaker_Medina/src/model/CinemaIcesi.java
 
 }
