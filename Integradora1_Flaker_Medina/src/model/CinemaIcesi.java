@@ -39,8 +39,9 @@ public class CinemaIcesi {
 		functionsList.add(new Function(movieName, functionDate, functionHour, functionMinute, am, lengthInMins, mediumRoom));
 
 	}
-	public void selectSpot(int row, int column, String clientName, int position) {
-		functionsList.get(position).selectSpot(row, column, clientName);
+	public void selectSpot(int row, int column, String clientName,String clientId, int position) {
+		Client clientobj=new Client(clientName, clientId);
+		functionsList.get(position).selectSpot(row, column, clientobj);
 	}
 	public boolean isFull(int position) {
 		return functionsList.get(position).isFull();

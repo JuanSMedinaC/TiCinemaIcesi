@@ -90,8 +90,8 @@ public class Main extends Application {
 	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) {
 		cineIcesi.registerFunction(movieName, functionDate, functionHour, functionMinute, am, room, lengthInMins);
 	}
-	public void selectSpot(int row, int column, String clientName, int position) {
-		cineIcesi.selectSpot(row, column, clientName, position);
+	public void registerUser(int row, int column, String clientName, String clientId, int position) {
+		cineIcesi.selectSpot(row, column, clientName, clientId, position);
 	}
 	public ArrayList<Function> returnFunctions(){
 		return cineIcesi.returnFunctions();

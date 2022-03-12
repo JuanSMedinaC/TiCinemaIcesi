@@ -23,8 +23,8 @@ public class Function{
 		this.lengthInMinutes = lengthInMinutes;
 		room = new Room(mediumRoom);
 	}
-	public void selectSpot(int row, int column, String clientName) {
-		room.selectSpot(row, column, clientName);
+	public void selectSpot(int row, int column, Client client) {
+		room.selectSpot(row, column, client);
 	}
 	
 	public boolean isFull() {

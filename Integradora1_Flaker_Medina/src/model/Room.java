@@ -9,29 +9,29 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Room {
-	private String[][] seatsWithNames;
+	private Client[][] seatsWithNames;
 	private boolean mediumRoom;
 	
 	public Room(boolean mediumRoom) {
 		this.mediumRoom=mediumRoom;
 		if(mediumRoom) {
-			seatsWithNames=new String[6][7];
+			seatsWithNames=new Client[6][7];
 		}else {
-			seatsWithNames=new String[4][7];
+			seatsWithNames=new Client[4][7];
 		}
 	}
 	
-	public void selectSpot(int row, int column, String clientName) {
+	public void selectSpot(int row, int column, Client client) {
 		
-		if(seatsWithNames[row][column]=="") {
-			seatsWithNames[row][column]=clientName;
+		if(seatsWithNames[row][column]==null) {
+			seatsWithNames[row][column]=client;
 		}
 	}
 	public boolean isFull() {
 		int counter=0;
 		for(int i=0; i<seatsWithNames.length;i++) {
 			for(int j=0; j<seatsWithNames[0].length;j++) {
-				if(seatsWithNames[i][j].equalsIgnoreCase("")){
+				if(seatsWithNames[i][j]==null){
 					counter++;
 				}
 			}
