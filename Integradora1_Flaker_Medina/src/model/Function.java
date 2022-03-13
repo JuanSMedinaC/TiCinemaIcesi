@@ -8,6 +8,7 @@ public class Function{
 	private int hour;
 	private int minute;
 	private boolean am;
+	private String ampmString;
 	private int lengthInMinutes;
 	
 	
@@ -22,6 +23,12 @@ public class Function{
 		this.am = am;
 		this.lengthInMinutes = lengthInMinutes;
 		room = new Room(mediumRoom);
+		if (am==true) {
+			ampmString="AM";
+		}
+		else {
+			ampmString="PM";
+		}
 	}
 	public void selectSpot(int row, int column, Client client) {
 		room.selectSpot(row, column, client);
@@ -84,10 +91,75 @@ public class Function{
 	public int getLengthInMinutes() {
 		return lengthInMinutes;
 	}
+	
+	public boolean isMediumRoom() {
+		return room.isMedium();
+	}
+	
+	public boolean isCrossed(Function function) {
+		boolean crossed=true;
+		int firstFunctionHour24hformat=0;
+		int firstFunctionmin=this.minute;
+		int firstFunctionEndHour24hformat=0;
+		int firstFunctionEndMin24hformat=0;
+		int secondFunctionHour24hformat=0;
+		int secondFunctionMin=function.getMinute();
+		if(isMediumRoom()==function.isMediumRoom()) {
+			if (function.getDate()==getDate()) {
+				if(am==true) {
+					firstFunctionHour24hformat=hour+12;
+				}
+				else {
+					firstFunctionHour24hformat=hour;
+				}
+				
+				if(function.isAm()==true) {
+					secondFunctionHour24hformat=function.getHour()+12;
+				}
+				else {
+					secondFunctionHour24hformat=function.getHour();
+				}
+				//TODO Terminar el cmparador
+			}
+		}
+		else {
+			crossed=false;
+		}
+		return crossed;
+		}
 
 
 	public void setLengthInMinutes(int lengthInMinutes) {
 		this.lengthInMinutes = lengthInMinutes;
+	}
+	
+	public String getAmpmString() {
+		return ampmString;
+	}
+	
+	public void setAmpmString(String ampmString) {
+		this.ampmString = ampmString;
+	}
+	
+	public String calculateEndHour() {
+		String endHourMinString="";
+		int endHour=0;
+		int endMin=0;
+		
+		return endHourMinString;
+		
+	}
+	
+	@Override
+	public String toString() {
+		String time="";
+		if (am==true) {
+			time="AM";
+		}
+		else {
+			time="PM";
+		}
+		return movieName +" "+ date + " " + hour +":"+ minute + time;
 	}
 	
 	

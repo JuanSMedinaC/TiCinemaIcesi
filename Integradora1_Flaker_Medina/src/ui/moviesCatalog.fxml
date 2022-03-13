@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="controller.MoviesCatalogController">
-   <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
-   </children>
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.">
+   <center>
+      <Pane prefHeight="430.0" prefWidth="664.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView layoutX="71.0" layoutY="119.0" prefHeight="375.0" prefWidth="605.0">
+              <columns>
+                <TableColumn prefWidth="150.0" text="Movie name" />
+                <TableColumn minWidth="0.0" prefWidth="155.0" text="Date" />
+                  <TableColumn prefWidth="75.0" text="Hour" />
+                  <TableColumn prefWidth="75.0" text="Minute" />
+                  <TableColumn prefWidth="75.0" text="AM/PM" />
+                  <TableColumn prefWidth="75.0" text="Length" />
+              </columns>
+            </TableView>
+            <Label layoutX="307.0" layoutY="42.0" text="Movies Catalog" textFill="#0e1cb2">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

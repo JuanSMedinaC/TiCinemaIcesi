@@ -44,41 +44,56 @@ public class Main extends Application {
 		}
 	}
 	public void showMainMenu() {
-		VBox root;
+		BorderPane root;
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/mainMenu.fxml"));
-			root = (VBox)loader.load();
+			root = (BorderPane)loader.load();
 			MainMenuController mainMenuController = loader.getController();
 			mainMenuController.setMain(this);
-			Scene scene = new Scene(root, 800,300);
+			
+			Scene scene = new Scene(root);
 			currentStage.setScene(scene);
+			currentStage.setHeight(458);
+			currentStage.setWidth(656);
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	public void showMoviesCatalog() {
-		VBox root;
+		BorderPane catalog;
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/moviesCatalog.fxml"));
-			root = (VBox)loader.load();
+			catalog = (BorderPane)loader.load();
 			MoviesCatalogController moviesCatalogController = loader.getController();
 			moviesCatalogController.setMain(this);
-			Scene scene = new Scene(root,800,500);
-			currentStage.setScene(scene);
+			
+			BorderPane root;
+			Stage stage = currentStage;
+			root = (BorderPane)stage.getScene().getRoot();
+			root.setCenter(catalog);
+			stage.setWidth(750);
+			stage.setHeight(532);
+			stage.show();
+			
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	public void showRegisterMovies() {
-		BorderPane root;
+		BorderPane registerMovies;
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/registerMovies.fxml"));
-			root = (BorderPane)loader.load();
+			registerMovies = (BorderPane)loader.load();
 			RegisterMoviesController regMovCont= loader.getController();
 			regMovCont.setMain(this);
-			
-			Scene scene = new Scene(root,800,500);
-			currentStage.setScene(scene);
+
+			BorderPane root;
+			Stage stage = currentStage;
+			root = (BorderPane)stage.getScene().getRoot();
+			root.setCenter(registerMovies);
+			stage.setWidth(800);
+			stage.setHeight(600);
+			stage.show();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
