@@ -25,7 +25,6 @@ public class LogInController {
 				label.setText("Contraseña erronea");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

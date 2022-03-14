@@ -150,9 +150,10 @@ public class Main extends Application {
 				Stage stage = currentStage;
 				root = (BorderPane)stage.getScene().getRoot();
 				root.setCenter(miniRoom);
-				stage.setWidth(800);
-				stage.setHeight(600);
+				stage.setWidth(900);
+				stage.setHeight(700);
 				stage.show();
+				miniRoomCont.setButtonsReg(function, name, id);
 			}catch(IOException e) {
 				e.printStackTrace();
 			}

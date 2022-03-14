@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class CinemaIcesi {
 	ArrayList<Function> functionsList;
 	public CinemaIcesi() {
@@ -24,6 +27,14 @@ public class CinemaIcesi {
 			}
 			
 		}
+		if (result==false) {
+			//TODO Excepción
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error Dialog");
+			alert.setHeaderText("Function crossed with one already created");
+			alert.setContentText("You may create the function in another schedule");
+			alert.showAndWait();
+		}
 		bufferedReader.close();
 		fileReader.close();
 		return result;
@@ -38,17 +49,15 @@ public class CinemaIcesi {
 			mediumRoom=true;
 		}
 		Function functionobj=new Function(movieName, functionDate, functionHour, functionMinute, am, lengthInMins, mediumRoom);
-		Exception e=new Exception();
+		Exception e=new Exception(); //Cambiarlo por excep de verdad
 		for (int i=0; i<functionsList.size();i++) {
 			if (functionobj.isCrossed(functionsList.get(i))) {
 				crossed=true;
-				System.out.println("Se manda");
 				throw e;
 			}
 		}
 		if (crossed==false) {
 			functionsList.add(functionobj);
-			System.out.println("Se crea");
 		}
 		
 	}
