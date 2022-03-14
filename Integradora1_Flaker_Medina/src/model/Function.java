@@ -14,7 +14,7 @@ public class Function implements Serializable{
 	private boolean am;
 	private String ampmString;
 	private int lengthInMinutes;
-	private String[][] clients;
+	private Client[][] clients;
 	
 	
 	private Room room;
@@ -28,7 +28,7 @@ public class Function implements Serializable{
 		this.am = am;
 		this.lengthInMinutes = lengthInMinutes;
 		room = new Room(mediumRoom);
-        clients=room.returnSeats;
+        clients=room.returnSeats();
 		if (am==true) {
 			ampmString="AM";
 		}
@@ -36,8 +36,8 @@ public class Function implements Serializable{
 			ampmString="PM";
 		}
 	}
-	public void selectSpot(int row, int column, String clientName) {
-		room.selectSpot(row, column, clientName);
+	public void selectSpot(int row, int column, Client client) {
+		room.selectSpot(row, column, client);
         clients=room.returnSeats();
 	}
 	
@@ -103,6 +103,9 @@ public class Function implements Serializable{
 		return room.isMedium();
 	}
 	
+	public String returnRoomType() {
+		return room.roomTypeString();
+	}
 	public boolean isCrossed(Function function) {
 		boolean crossed=true;
 		int firstFunctionHour24hformat=0;

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<<<<<<< HEAD
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -34,6 +33,11 @@
                   <Font size="17.0" />
                </font>
             </Button>
+            <Button layoutX="257.0" layoutY="371.0" mnemonicParsing="false" onAction="#showFullReport" prefHeight="34.0" prefWidth="144.0" text="Show full report">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </center>
@@ -46,6 +50,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#showRegisterMovies" text="Register Function" />
                   <MenuItem mnemonicParsing="false" onAction="#showMoviesCatalog" text="Show functions" />
                   <MenuItem mnemonicParsing="false" onAction="#showFunctionPicker" text="Select function" />
+                  <MenuItem fx:id="showFullReport" mnemonicParsing="false" text="Show full report" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -62,31 +67,3 @@
       </MenuBar>
    </top>
 </BorderPane>
-=======
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
-   <children>
-      <VBox alignment="CENTER" minHeight="300.0" minWidth="800.0" prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <HBox alignment="CENTER" prefHeight="39.0" prefWidth="800.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#showRegisterMovies" text="Register movie" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="800.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#showMoviesCatalog" text="Show movies" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="39.0" prefWidth="800.0">
-               <children>
-                  <Button mnemonicParsing="false" text="Button" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
-</VBox>
->>>>>>> DevelopFlaker

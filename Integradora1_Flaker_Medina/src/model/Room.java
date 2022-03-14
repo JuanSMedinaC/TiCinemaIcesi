@@ -9,9 +9,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Room {
+public class Room implements Serializable{
 	private Client[][] seatsWithNames;
 	private boolean mediumRoom;
+	
+	private static final long serialVersionUID = -2L;
 	
 	public Room(boolean mediumRoom) {
 		this.mediumRoom=mediumRoom;
@@ -21,8 +23,18 @@ public class Room {
 			seatsWithNames=new Client[4][7];
 		}
 	}
-	public String[][] returnSeats() {
+	public Client[][] returnSeats() {
 		return seatsWithNames;
+	}
+	
+	public String roomTypeString() {
+		String message="";
+		if(mediumRoom) {
+			message= "SALA MEDIA";
+		}else {
+			message= "MINISALA";
+		}
+		return message;
 	}
 	
 	public void selectSpot(int row, int column, Client client) {

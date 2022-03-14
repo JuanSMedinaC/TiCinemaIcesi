@@ -33,6 +33,11 @@
                   <Font size="17.0" />
                </font>
             </Button>
+            <Button layoutX="257.0" layoutY="371.0" mnemonicParsing="false" onAction="#showFullReport" prefHeight="34.0" prefWidth="144.0" text="Show full report">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </center>
@@ -45,6 +50,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#showRegisterMovies" text="Register Function" />
                   <MenuItem mnemonicParsing="false" onAction="#showMoviesCatalog" text="Show functions" />
                   <MenuItem mnemonicParsing="false" onAction="#showFunctionPicker" text="Select function" />
+                  <MenuItem fx:id="showFullReport" mnemonicParsing="false" text="Show full report" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

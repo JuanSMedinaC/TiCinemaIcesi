@@ -24,4 +24,8 @@ public class MainMenuController {
 	public void showFunctionPicker() {
 		main.showFunctionPicker();
 	}
+	@FXML
+	public void showFullReport() {
+		main.showFullReport();
+	}
 }

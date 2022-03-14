@@ -10,11 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MediumRoomController">
-=======
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
->>>>>>> DevelopFlaker
    <center>
       <Pane prefHeight="571.0" prefWidth="795.0" styleClass="bg-style" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
@@ -37,7 +33,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-<<<<<<< HEAD
                   <Button fx:id="a1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttona1" prefHeight="46.0" prefWidth="53.0" styleClass="button-1" stylesheets="@application.css" text="1" />
                   <Button fx:id="b1" mnemonicParsing="false" onAction="#buttonb1" styleClass="button-1" stylesheets="@application.css" text="1" GridPane.rowIndex="1" />
                   <Button fx:id="a2" mnemonicParsing="false" onAction="#buttona2" styleClass="button-1" stylesheets="@application.css" text="2" GridPane.columnIndex="1" />
@@ -80,50 +75,6 @@
                   <Button fx:id="f5" mnemonicParsing="false" onAction="#buttonf5" styleClass="button-1" stylesheets="@application.css" text="5" GridPane.columnIndex="4" GridPane.rowIndex="5" />
                   <Button fx:id="f6" mnemonicParsing="false" onAction="#buttonf6" styleClass="button-1" stylesheets="@application.css" text="6" GridPane.columnIndex="5" GridPane.rowIndex="5" />
                   <Button fx:id="f7" mnemonicParsing="false" onAction="#buttonf7" prefHeight="103.0" prefWidth="181.0" styleClass="button-1" stylesheets="@application.css" text="7" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-=======
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="53.0" styleClass="button-1" stylesheets="@application.css" text="Button" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="5" />
-                  <Button alignment="CENTER" mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="6" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" prefHeight="103.0" prefWidth="181.0" styleClass="button-1" stylesheets="@application.css" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="5" />
->>>>>>> DevelopFlaker
                </children>
             </GridPane>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#343536" height="76.0" layoutX="312.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="254.0" />

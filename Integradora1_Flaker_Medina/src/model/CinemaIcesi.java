@@ -1,6 +1,7 @@
 package model;
 
 import java.io.BufferedReader;
+import exception.*;
 import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -52,7 +53,7 @@ public class CinemaIcesi {
 		
 	}
 	
-	public boolean validatePassword(String password) throws IOException {
+	public boolean validatePassword(String password) throws IOException, WrongUserException {
 		boolean result = false;
 		FileReader fileReader = new FileReader("src\\passwords.txt");
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -64,19 +65,19 @@ public class CinemaIcesi {
 			
 		}
 		if (result==false) {
-			//TODO Excepci�n
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error Dialog");
 			alert.setHeaderText("Function crossed with one already created");
 			alert.setContentText("You may create the function in another schedule");
 			alert.showAndWait();
+			throw new WrongUserException();
 		}
 		bufferedReader.close();
 		fileReader.close();
 		return result;
 	}
 	
-	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) throws Exception {
+	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) throws CrossedFunctionException {
 		boolean crossed=false;
 		boolean mediumRoom = true;
 		if(room == 1) {
@@ -85,11 +86,11 @@ public class CinemaIcesi {
 			mediumRoom=true;
 		}
 		Function functionobj=new Function(movieName, functionDate, functionHour, functionMinute, am, lengthInMins, mediumRoom);
-		Exception e=new Exception(); //Cambiarlo por excep de verdad
+		
 		for (int i=0; i<functionsList.size();i++) {
 			if (functionobj.isCrossed(functionsList.get(i))) {
 				crossed=true;
-				throw e;
+				throw new CrossedFunctionException(functionsList.get(i).getMovieName());
 			}
 		}
 		if (crossed==false) {
@@ -99,10 +100,9 @@ public class CinemaIcesi {
 			ObjectOutputStream out;
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(functionobj);
-			out.close();
 			fileOut.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
 		}
 		
@@ -117,6 +117,21 @@ public class CinemaIcesi {
 	}
 	public ArrayList<Function> returnFunctions(){
 		return functionsList;
+	}
+	public String printAllFuncsAndPersons() {
+		String message="";
+		for(int i=0;i<functionsList.size();i++) {
+			Client[][] persons = functionsList.get(i).getSeats();
+			message+="\n"+i+". "+functionsList.get(i).getMovieName()+" - "+functionsList.get(i).getDate()+" - "+functionsList.get(i).returnRoomType();
+			for(int j=0;j<persons.length;j++) {
+				for(int h=0;h<persons[j].length;h++) {
+					if(persons[j][h]!=null) {
+						message+="\n"+persons[j][h].getName();
+					}
+				}
+			}
+		}
+		return message;
 	}
 
 }

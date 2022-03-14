@@ -3,6 +3,7 @@ package controller;
 import java.time.LocalDate;
 
 import application.Main;
+import exception.CrossedFunctionException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -68,7 +69,7 @@ public class RegisterMoviesController {
 		try {
 			main.registerFunction(name, functionDate, hour, minute, am, room, length);
 			main.showMoviesCatalog();
-		} catch (Exception e) {
+		} catch (CrossedFunctionException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error Dialog");
 			alert.setHeaderText("Function crossed with one already created");

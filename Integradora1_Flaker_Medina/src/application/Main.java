@@ -1,6 +1,8 @@
 package application;
-	
+
+import exception.*;
 import controller.*;
+import exception.WrongUserException;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -103,10 +105,34 @@ public class Main extends Application {
 		}
 		
 	}
-	public boolean validatePassword(String password) throws IOException {
+	public void showFullReport() {
+		BorderPane reportAll;
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/reportAll.fxml"));
+			reportAll = (BorderPane)loader.load();
+			ReportAllController reportAllController= loader.getController();
+			reportAllController.setMain(this);
+			reportAllController.start();
+
+			BorderPane root;
+			Stage stage = currentStage;
+			root = (BorderPane)stage.getScene().getRoot();
+			root.setCenter(reportAll);
+			stage.setWidth(800);
+			stage.setHeight(600);
+			stage.show();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public String printAllFuncsAndPersons() {
+		return cineIcesi.printAllFuncsAndPersons();
+	}
+	public boolean validatePassword(String password) throws IOException, WrongUserException {
 		return cineIcesi.validatePassword(password);
 	}
-	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) throws Exception {
+	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) throws CrossedFunctionException {
 		cineIcesi.registerFunction(movieName, functionDate, functionHour, functionMinute, am, room, lengthInMins);
 	}
 	public void registerUser(int row, int column, String clientName, String clientId, Function function) {
