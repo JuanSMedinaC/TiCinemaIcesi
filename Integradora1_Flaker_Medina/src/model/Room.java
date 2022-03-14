@@ -5,10 +5,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Room {
+	
+	
 	private String[][] seatsWithNames;
 	private boolean mediumRoom;
 	
@@ -20,10 +23,13 @@ public class Room {
 			seatsWithNames=new String[4][7];
 		}
 	}
+	public String[][] returnSeats() {
+		return seatsWithNames;
+	}
 	
 	public void selectSpot(int row, int column, String clientName) {
 		
-		if(seatsWithNames[row][column]=="") {
+		if(seatsWithNames[row][column]==null) {
 			seatsWithNames[row][column]=clientName;
 		}
 	}
