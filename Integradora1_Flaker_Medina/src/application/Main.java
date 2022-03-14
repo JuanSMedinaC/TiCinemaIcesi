@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	
 	private CinemaIcesi cineIcesi=new CinemaIcesi();
 	private Stage currentStage = new Stage();
 	private Image icon;

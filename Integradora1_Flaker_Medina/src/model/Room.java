@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -19,6 +20,9 @@ public class Room {
 		}else {
 			seatsWithNames=new Client[4][7];
 		}
+	}
+	public String[][] returnSeats() {
+		return seatsWithNames;
 	}
 	
 	public void selectSpot(int row, int column, Client client) {

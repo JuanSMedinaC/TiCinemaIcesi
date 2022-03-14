@@ -1,10 +1,19 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javafx.scene.control.Alert;
@@ -12,8 +21,35 @@ import javafx.scene.control.Alert.AlertType;
 
 public class CinemaIcesi {
 	ArrayList<Function> functionsList;
+	FileReader fileReader;
+	private Function function; 
+	
+	
 	public CinemaIcesi() {
+		
 		functionsList=new ArrayList<Function>();
+		try {
+			FileInputStream fileIn = new FileInputStream("src\\Functions.csv");
+			
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			Function f;
+			
+			while(true) {
+				
+				f = (Function)in.readObject();
+				functionsList.add(f);
+				
+			}
+		}catch(EOFException e) {
+		}catch(IOException e2) {
+		}catch(ClassNotFoundException e3) {
+
+		}
+			
+		 
+		
+			
+		
 	}
 	
 	public boolean validatePassword(String password) throws IOException {
@@ -28,7 +64,7 @@ public class CinemaIcesi {
 			
 		}
 		if (result==false) {
-			//TODO Excepción
+			//TODO Excepciï¿½n
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error Dialog");
 			alert.setHeaderText("Function crossed with one already created");
@@ -58,8 +94,19 @@ public class CinemaIcesi {
 		}
 		if (crossed==false) {
 			functionsList.add(functionobj);
+            		try {
+			FileOutputStream fileOut = new FileOutputStream("src\\Functions.csv");
+			ObjectOutputStream out;
+			out = new ObjectOutputStream(fileOut);
+			out.writeObject(functionobj);
+			out.close();
+			fileOut.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		}
 		
+
 	}
 	public void selectSpot(int row, int column, String clientName,String clientId, Function function) {
 		Client clientobj=new Client(clientName, clientId);

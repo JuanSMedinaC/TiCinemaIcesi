@@ -1,4 +1,9 @@
 /model/
+<<<<<<< HEAD
 /controller/
 /ui/
 /application/
+=======
+/application/
+/exception/
+>>>>>>> DevelopFlaker

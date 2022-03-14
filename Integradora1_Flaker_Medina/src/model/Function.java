@@ -1,8 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Function{
+public class Function implements Serializable{
+	
+	private static final long serialVersionUID = -1L;
+	
 	private String movieName;
 	private LocalDate date;
 	private int hour;
@@ -10,6 +14,7 @@ public class Function{
 	private boolean am;
 	private String ampmString;
 	private int lengthInMinutes;
+	private String[][] clients;
 	
 	
 	private Room room;
@@ -23,6 +28,7 @@ public class Function{
 		this.am = am;
 		this.lengthInMinutes = lengthInMinutes;
 		room = new Room(mediumRoom);
+        clients=room.returnSeats;
 		if (am==true) {
 			ampmString="AM";
 		}
@@ -30,8 +36,9 @@ public class Function{
 			ampmString="PM";
 		}
 	}
-	public void selectSpot(int row, int column, Client client) {
-		room.selectSpot(row, column, client);
+	public void selectSpot(int row, int column, String clientName) {
+		room.selectSpot(row, column, clientName);
+        clients=room.returnSeats();
 	}
 	
 	public boolean isFull() {
@@ -181,8 +188,8 @@ public class Function{
 		int endHour=0;
 		int endMin=0;
 		
-		return endHourMinString;
 		
+		return endHourMinString;
 	}
 	
 	public Client[][] getSeats(){
