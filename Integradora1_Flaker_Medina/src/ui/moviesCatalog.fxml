@@ -7,18 +7,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MoviesCatalogController">
    <center>
       <Pane prefHeight="430.0" prefWidth="664.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="71.0" layoutY="119.0" prefHeight="375.0" prefWidth="605.0">
+            <TableView fx:id="functions" layoutX="51.0" layoutY="117.0" prefHeight="375.0" prefWidth="649.0">
               <columns>
-                <TableColumn prefWidth="150.0" text="Movie name" />
-                <TableColumn minWidth="0.0" prefWidth="155.0" text="Date" />
-                  <TableColumn prefWidth="75.0" text="Hour" />
-                  <TableColumn prefWidth="75.0" text="Minute" />
-                  <TableColumn prefWidth="75.0" text="AM/PM" />
-                  <TableColumn prefWidth="75.0" text="Length" />
+                <TableColumn fx:id="movieName" prefWidth="150.0" text="Movie name" />
+                <TableColumn fx:id="date" minWidth="0.0" prefWidth="155.0" text="Date" />
+                  <TableColumn fx:id="hour" prefWidth="75.0" text="Hour" />
+                  <TableColumn fx:id="minute" prefWidth="75.0" text="Minute" />
+                  <TableColumn fx:id="ampm" prefWidth="75.0" text="AM/PM" />
+                  <TableColumn fx:id="length" prefWidth="118.0" text="Length in minutes" />
               </columns>
             </TableView>
             <Label layoutX="307.0" layoutY="42.0" text="Movies Catalog" textFill="#0e1cb2">

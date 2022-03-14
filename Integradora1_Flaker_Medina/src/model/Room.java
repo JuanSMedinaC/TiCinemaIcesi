@@ -30,6 +30,11 @@ public class Room {
 	public boolean isMedium() {
 		return mediumRoom;
 	}
+	
+	public Client[][] getSeats(){
+		return seatsWithNames;
+	}
+	
 	public boolean isFull() {
 		int counter=0;
 		for(int i=0; i<seatsWithNames.length;i++) {

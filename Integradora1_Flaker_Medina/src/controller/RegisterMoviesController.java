@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import application.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -63,7 +65,16 @@ public class RegisterMoviesController {
 		else {
 			//Tirar excepción
 		}
-		main.registerFunction(name, functionDate, hour, minute, am, room, length);
+		try {
+			main.registerFunction(name, functionDate, hour, minute, am, room, length);
+			main.showMoviesCatalog();
+		} catch (Exception e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error Dialog");
+			alert.setHeaderText("Function crossed with one already created");
+			alert.setContentText("You may create the function in another schedule");
+			alert.showAndWait();
+		}
 	}
 	
 	public void setMain(Main main) {

@@ -1,6 +1,7 @@
 package application;
 	
 import controller.*;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -67,13 +68,15 @@ public class Main extends Application {
 			MoviesCatalogController moviesCatalogController = loader.getController();
 			moviesCatalogController.setMain(this);
 			
+			
 			BorderPane root;
 			Stage stage = currentStage;
 			root = (BorderPane)stage.getScene().getRoot();
 			root.setCenter(catalog);
 			stage.setWidth(750);
-			stage.setHeight(532);
+			stage.setHeight(600);
 			stage.show();
+			moviesCatalogController.setItems();
 			
 		}catch (IOException e) {
 			e.printStackTrace();
@@ -102,18 +105,82 @@ public class Main extends Application {
 	public boolean validatePassword(String password) throws IOException {
 		return cineIcesi.validatePassword(password);
 	}
-	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) {
+	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) throws Exception {
 		cineIcesi.registerFunction(movieName, functionDate, functionHour, functionMinute, am, room, lengthInMins);
 	}
-	public void registerUser(int row, int column, String clientName, String clientId, int position) {
-		cineIcesi.selectSpot(row, column, clientName, clientId, position);
+	public void registerUser(int row, int column, String clientName, String clientId, Function function) {
+		cineIcesi.selectSpot(row, column, clientName, clientId, function);
 	}
 	public ArrayList<Function> returnFunctions(){
 		return cineIcesi.returnFunctions();
 	}
-	public boolean isFull(int position) {
-		return cineIcesi.isFull(position);
+	public boolean isFull(Function function) {
+		return cineIcesi.isFull(function);
 	}
+	public void showRoom(String name, String id, Function function) {
+		if (function.isMediumRoom()) {
+			BorderPane mediumRoom;
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/mediumRoom.fxml"));
+				mediumRoom= (BorderPane)loader.load();
+				MediumRoomController medRoomCont= loader.getController();
+				medRoomCont.setMain(this);
+
+				BorderPane root;
+				Stage stage = currentStage;
+				root = (BorderPane)stage.getScene().getRoot();
+				root.setCenter(mediumRoom);
+				stage.setWidth(900);
+				stage.setHeight(700);
+				stage.show();
+				medRoomCont.setButtonsReg(function, name, id);
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else {
+			BorderPane miniRoom;
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/miniRoom.fxml"));
+				miniRoom = (BorderPane)loader.load();
+				MiniRoomController miniRoomCont= loader.getController();
+				miniRoomCont.setMain(this);
+
+				BorderPane root;
+				Stage stage = currentStage;
+				root = (BorderPane)stage.getScene().getRoot();
+				root.setCenter(miniRoom);
+				stage.setWidth(800);
+				stage.setHeight(600);
+				stage.show();
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public void showFunctionPicker() {
+		BorderPane functionPicker;
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/functionPicker.fxml"));
+			functionPicker = (BorderPane)loader.load();
+			FunctionPickerController functPickCont= loader.getController();
+			functPickCont.setMain(this);
+
+			BorderPane root;
+			Stage stage = currentStage;
+			root = (BorderPane)stage.getScene().getRoot();
+			root.setCenter(functionPicker);
+			stage.setWidth(800);
+			stage.setHeight(600);
+			stage.show();
+			functPickCont.start();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}

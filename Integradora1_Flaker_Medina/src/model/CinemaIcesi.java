@@ -29,22 +29,35 @@ public class CinemaIcesi {
 		return result;
 	}
 	
-	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) {
+	public void registerFunction(String movieName, LocalDate functionDate, int functionHour, int functionMinute, boolean am, int room, int lengthInMins) throws Exception {
+		boolean crossed=false;
 		boolean mediumRoom = true;
 		if(room == 1) {
 			mediumRoom=false;
 		}else {
 			mediumRoom=true;
 		}
-		functionsList.add(new Function(movieName, functionDate, functionHour, functionMinute, am, lengthInMins, mediumRoom));
-
+		Function functionobj=new Function(movieName, functionDate, functionHour, functionMinute, am, lengthInMins, mediumRoom);
+		Exception e=new Exception();
+		for (int i=0; i<functionsList.size();i++) {
+			if (functionobj.isCrossed(functionsList.get(i))) {
+				crossed=true;
+				System.out.println("Se manda");
+				throw e;
+			}
+		}
+		if (crossed==false) {
+			functionsList.add(functionobj);
+			System.out.println("Se crea");
+		}
+		
 	}
-	public void selectSpot(int row, int column, String clientName,String clientId, int position) {
+	public void selectSpot(int row, int column, String clientName,String clientId, Function function) {
 		Client clientobj=new Client(clientName, clientId);
-		functionsList.get(position).selectSpot(row, column, clientobj);
+		function.selectSpot(row, column, clientobj);
 	}
-	public boolean isFull(int position) {
-		return functionsList.get(position).isFull();
+	public boolean isFull(Function function) {
+		return function.isFull();
 	}
 	public ArrayList<Function> returnFunctions(){
 		return functionsList;

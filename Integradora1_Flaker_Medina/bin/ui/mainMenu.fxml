@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -29,7 +28,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="257.0" layoutY="301.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="144.0" text="Select function">
+            <Button layoutX="257.0" layoutY="301.0" mnemonicParsing="false" onAction="#showFunctionPicker" prefHeight="34.0" prefWidth="144.0" text="Select function">
                <font>
                   <Font size="17.0" />
                </font>
@@ -45,6 +44,7 @@
               <MenuItem mnemonicParsing="false" onAction="#showMainMenu" text="Menu" />
                   <MenuItem mnemonicParsing="false" onAction="#showRegisterMovies" text="Register Function" />
                   <MenuItem mnemonicParsing="false" onAction="#showMoviesCatalog" text="Show functions" />
+                  <MenuItem mnemonicParsing="false" onAction="#showFunctionPicker" text="Select function" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

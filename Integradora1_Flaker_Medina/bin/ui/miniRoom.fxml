@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="632.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="632.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MiniRoomController">
    <center>
       <Pane prefHeight="515.0" prefWidth="691.0" styleClass="bg-style" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>

@@ -104,6 +104,8 @@ public class Function{
 		int firstFunctionEndMin24hformat=0;
 		int secondFunctionHour24hformat=0;
 		int secondFunctionMin=function.getMinute();
+		int secondFunctionEndMin24hformat=0;
+		int secondFunctionEndHour24hformat=0;
 		if(isMediumRoom()==function.isMediumRoom()) {
 			if (function.getDate()==getDate()) {
 				if(am==true) {
@@ -119,7 +121,40 @@ public class Function{
 				else {
 					secondFunctionHour24hformat=function.getHour();
 				}
-				//TODO Terminar el cmparador
+				//Sum of the length
+				firstFunctionmin+=lengthInMinutes;
+				secondFunctionMin+=function.getLengthInMinutes();
+				firstFunctionEndHour24hformat=firstFunctionHour24hformat;
+				secondFunctionEndHour24hformat=secondFunctionHour24hformat;
+				firstFunctionEndMin24hformat=lengthInMinutes+minute;
+				secondFunctionEndMin24hformat=function.getMinute()+function.getLengthInMinutes();
+				while (firstFunctionEndMin24hformat>=60) {
+					firstFunctionEndMin24hformat-=60;
+					firstFunctionEndHour24hformat+=1;
+				}
+				while (secondFunctionEndMin24hformat>=60) {
+					firstFunctionEndMin24hformat-=60;
+					firstFunctionEndHour24hformat+=1;
+				}
+				if (firstFunctionHour24hformat<secondFunctionHour24hformat) {
+					if(secondFunctionHour24hformat<firstFunctionEndHour24hformat) {
+						crossed=true;
+					}
+					else {
+						crossed=false;
+					}
+				}
+				else if(secondFunctionHour24hformat<firstFunctionHour24hformat) {
+					if(firstFunctionHour24hformat<secondFunctionEndHour24hformat) {
+						crossed=true;
+					}
+					else {
+						crossed=false;
+					}
+				}
+				else if(firstFunctionHour24hformat==secondFunctionHour24hformat) {
+					crossed=true;
+				}
 			}
 		}
 		else {
@@ -148,6 +183,10 @@ public class Function{
 		
 		return endHourMinString;
 		
+	}
+	
+	public Client[][] getSeats(){
+		return room.getSeats();
 	}
 	
 	@Override

@@ -20,4 +20,8 @@ public class MainMenuController {
 	public void showMainMenu() {
 		main.showMainMenu();
 	}
+	@FXML
+	public void showFunctionPicker() {
+		main.showFunctionPicker();
+	}
 }
